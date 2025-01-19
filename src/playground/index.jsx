@@ -10,21 +10,6 @@ import * as Sentry from '@sentry/react';
 import {isProd, appVersion, appVersionFull} from '../lib/app-info';
 import styles from './index.css';
 
-// Register "base" page view
-analytics.pageview('/');
-Sentry.init({
-    dsn: 'https://ed881d9f133e457d8cdca25202200c3f@o1098997.ingest.sentry.io/6123390',
-    integrations: [
-        // new SentryRRWeb({
-        //     checkoutEveryNms: 2 * 60 * 1000
-        // })
-    ],
-    release: isProd ? appVersion : appVersionFull,
-    environment: isProd ? 'stable' : 'canary',
-    tracesSampleRate: 0.5
-});
-global.Sentry = Sentry;
-
 const appTarget = document.createElement('div');
 appTarget.className = styles.app;
 document.body.appendChild(appTarget);
