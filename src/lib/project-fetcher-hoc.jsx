@@ -134,7 +134,7 @@ const ProjectFetcherHOC = function (WrappedComponent) {
         setProjectId: PropTypes.func
     };
     ProjectFetcherComponent.defaultProps = {
-        assetHost: process.env.ZCASSET,
+        assetHost: process.env.ZCASSETHOST,
         projectHost: 'https://projects.scratch.mit.edu'
     };
 
