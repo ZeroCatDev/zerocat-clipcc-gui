@@ -770,6 +770,9 @@ class MenuBar extends React.Component {
                         fileHandle={this.props.fileHandle}
                     />
                 </div>
+                <div className={styles.menuBarItem}>
+                    <Button id="zerocatool">测试</Button>
+                </div>
                 {this.props.isStandalone ? null : (
                     <div className={styles.accountInfoGroup}>
                         {this.props.sessionExists ? (
