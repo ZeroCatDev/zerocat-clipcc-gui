@@ -771,7 +771,7 @@ class MenuBar extends React.Component {
                     />
                 </div>
                 <div className={styles.menuBarItem}>
-                    <Button id="zerocatool">ZeroCat服务加载中</Button>
+                    <Button id="zerocattool">ZeroCat服务加载中</Button>
                 </div>
                 {this.props.isStandalone ? null : (
                     <div className={styles.accountInfoGroup}>
