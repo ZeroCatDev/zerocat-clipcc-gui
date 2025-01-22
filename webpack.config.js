@@ -130,8 +130,7 @@ function getPlugins () {
     let res = base.plugins.concat([
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
-            'process.env.ZCAPIHOST': '"' + process.env.ZCAPIHOST + '"',
-            'process.env.ZCASSETHOST': '"' + process.env.ZCASSETHOST + '"',
+            'process.env.ZCAPIHOST': `"${process.env.ZCAPIHOST}"`,
             'process.env.DEBUG': Boolean(process.env.DEBUG),
             'process.env.GA_ID': '"' + (process.env.GA_ID || 'UA-000000-01') + '"'
         }),
