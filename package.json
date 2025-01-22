@@ -22,7 +22,8 @@
     "watch": "webpack --colors --watch",
     "genmeta": "node gen-meta.js",
     "build:dist": "STATIC_PATH=static BUILD_MODE=dist NODE_ENV=production yarn run build",
-    "build:pwa": "NODE_ENV=production ENABLE_PWA=true ENABLE_HTTPS=true yarn run build"
+    "build:pwa": "NODE_ENV=production ENABLE_PWA=true ENABLE_HTTPS=true yarn run build",
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && export ZCAPIHOST='http://localhost:3000' && export ZCASSETHOST='https://s4-1.wuyuan.1r.ink/' && yarn run genmeta &&  npm run start"
   },
   "author": "Clip Team",
   "license": "AGPL-3.0",
