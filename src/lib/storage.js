@@ -59,7 +59,7 @@ class Storage extends ScratchStorage {
         this.assetHost = assetHost;
     }
     getAssetGetConfig (asset) {
-        return `${this.assetHost}project/asset/${asset.assetId}.${asset.dataFormat}`;
+        return `${this.assetHost}assets/${asset.assetId.slice(0, 2)}/${asset.assetId.slice(2, 4)}/${asset.assetId}.${asset.dataFormat}`;
     }
     getAssetCreateConfig (asset) {
         return {
@@ -68,7 +68,7 @@ class Storage extends ScratchStorage {
             // assetId as part of the create URI. So, force the method to POST.
             // Then when storage finds this config to use for the "update", still POSTs
             method: 'post',
-            url: `${this.assetHost}/${asset.assetId}.${asset.dataFormat}`,
+            url: `${this.assetHost}assets/${asset.assetId.slice(0, 2)}/${asset.assetId.slice(2, 4)}/${asset.assetId}.${asset.dataFormat}`,
             withCredentials: true
         };
     }

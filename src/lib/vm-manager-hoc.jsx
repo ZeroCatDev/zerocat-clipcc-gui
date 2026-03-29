@@ -25,15 +25,27 @@ const vmManagerHOC = function (WrappedComponent) {
         constructor (props) {
             super(props);
             bindAll(this, [
-                'loadProject'
+                'loadProject',
+                'handleGuiRef'
             ]);
         }
+        handleGuiRef (guiRef) {
+            if (typeof window !== 'undefined') {
+                window.gui = guiRef;
+            }
+            if (this.props.onRef) {
+                this.props.onRef(guiRef);
+            }
+        }
         componentDidMount () {
+            if (typeof window !== 'undefined') {
+                window.vm = this.props.vm;
+            }
             if (!this.props.vm.initialized) {
                 this.audioEngine = new AudioEngine();
                 this.props.vm.attachAudioEngine(this.audioEngine);
                 this.props.vm.setCompatibilityMode(true);
-                
+
                 const { vm } = this.props;
                 //初始化设置
                 try {
@@ -108,6 +120,7 @@ const vmManagerHOC = function (WrappedComponent) {
             return (
                 <WrappedComponent
                     isLoading={isLoadingWithIdProp}
+                    onRef={this.handleGuiRef}
                     vm={vm}
                     {...componentProps}
                 />
